@@ -29,8 +29,8 @@ public class MultiObjectComponent extends VerticalLayout{
 		destinationBranchDepartment.setValue(bean.getDestinationBranchDepartment());
 		destinationBranchDepartment.setReadOnly(true);
 		
-		pol_pod = new TextField("POL-POD");
-		pol_pod.setValue(bean.getPol_pod());
+		pol_pod = new TextField("Shipper");
+		pol_pod.setValue(bean.getShipmentRefNo());
 		pol_pod.setReadOnly(true);
 	
 		consinee =new TextField("Consinee");

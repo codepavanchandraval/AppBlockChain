@@ -30,6 +30,7 @@ public class SaveClass {
 		bean.setPrivateKey(hashCode);
 		bean.setDate(LocalDateTime.now());
 		BlockchainManager.addToBlockChain(bean);
+		ServiceUtil.updateHashCodeInKF(privateKey);
 		return hashCode;
 	}
 }

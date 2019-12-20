@@ -139,12 +139,11 @@ public class BlockChainDatastructureImpl<T> implements BlockChainDatastructure<T
 		Node tmp = tail;
 		while (position > 0) {
 			if (tmp == null) {
-				return null;
+				return data;
 			}
-			tmp = tmp.prev;
 			data = tmp.element;
+			tmp = tmp.prev;
 			position--;
-
 		}
 		return data;
 	}

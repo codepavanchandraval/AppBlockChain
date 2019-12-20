@@ -69,8 +69,8 @@ public class MailSendingUtil {
 		}
 		
 		String privateKey = IdGenerator.getSHA256Hash(shipmntBeanNew.getHouseNo());
-		String approvaLlink = "http://10.148.4.156:8080/approve?requestId=" + privateKey + "&houseHold=" + shipmntBeanNew.getHouseNo();
-		String rejectlink = "http://10.148.4.156:8080/reject?requestId=" + privateKey + "&houseHold=" + shipmntBeanNew.getHouseNo();
+		String approvaLlink = "http://10.148.4.109:8080/approve?requestId=" + privateKey + "&houseHold=" + shipmntBeanNew.getHouseNo();
+		String rejectlink = "http://10.148.4.109:8080/reject?requestId=" + privateKey + "&houseHold=" + shipmntBeanNew.getHouseNo();
 		
 		mimeBodyPart.setContent(msg + "<br> To Accept: " + approvaLlink + "<br> <br> To Reject: " + rejectlink, "text/html");
 
