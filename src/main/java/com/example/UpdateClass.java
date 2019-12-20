@@ -2,6 +2,8 @@ package com.example;
 
 
 
+import java.time.LocalDateTime;
+
 import javax.mail.MessagingException;
 import javax.mail.internet.AddressException;
 
@@ -30,6 +32,7 @@ public class UpdateClass {
 		if (!flag) {
 			return "0";
 		}
+		bean.setDate(LocalDateTime.now());
 	    BlockchainManager.addToBlockChain(bean);
 		return "1";
 	}

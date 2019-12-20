@@ -1,5 +1,7 @@
 package com.example;
 
+import java.time.LocalDateTime;
+
 import javax.mail.MessagingException;
 import javax.mail.internet.AddressException;
 
@@ -26,6 +28,7 @@ public class SaveClass {
 		}
 		String hashCode = IdGenerator.getSHA256Hash(privateKey);
 		bean.setPrivateKey(hashCode);
+		bean.setDate(LocalDateTime.now());
 		BlockchainManager.addToBlockChain(bean);
 		return hashCode;
 	}
