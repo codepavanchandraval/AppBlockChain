@@ -6,6 +6,7 @@ import java.sql.Statement;
 
 import com.database.DbConnectionProvider;
 import com.model.ShipmentBean;
+import com.util.IdGenerator;
 
 public class ServiceUtil {
 	
@@ -29,4 +30,18 @@ public class ServiceUtil {
 		return bean;
 	}
 
+	
+	public static boolean updateHashCodeInKF(String housedocId) {
+		String privateKey = IdGenerator.getSHA256Hash(housedocId);
+		try {
+			Connection connection = DbConnectionProvider.getConnection();
+			Statement statement = connection.createStatement();
+			statement.executeUpdate("update fs_fr_housedochdr set PRIVATEKEY=" + privateKey
+					+ " and STATUSBC= 'APPROVED' where housedocid = " + housedocId + ";");
+		} catch (Exception e) {
+			System.out.println(e);
+			return false;
+		}
+		return true;
+	}
 }

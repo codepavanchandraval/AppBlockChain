@@ -11,9 +11,7 @@ public class MultiObjectComponent extends VerticalLayout{
 	
 	private TextField originBranchDepartmentTextField;
 	private TextField destinationBranchDepartment;
-	private TextField eta_etd;
 	private TextField pol_pod;
-	private TextField shippers;
 	private TextField consinee;
 	
 	public MultiObjectComponent(ShipmentBean bean) {
@@ -43,6 +41,6 @@ public class MultiObjectComponent extends VerticalLayout{
 		hashCode.setValue(IdGenerator.getSHA256Hash(bean.getShipmentRefNo()+bean.getDate()));
 		hashCode.setReadOnly(true);
 		
-		this.add(originBranchDepartmentTextField,destinationBranchDepartment,eta_etd,pol_pod,shippers,consinee,hashCode);
+		this.add(originBranchDepartmentTextField,destinationBranchDepartment,pol_pod,consinee,hashCode);
 	}
 }
