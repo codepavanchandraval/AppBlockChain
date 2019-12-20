@@ -8,14 +8,15 @@ import org.springframework.web.bind.annotation.RestController;
 public class email {
 
 	@GetMapping("/approve")
-	public String sa(@RequestParam final String approvalRequestId) {
-		
+	public String sa(@RequestParam final String approvalRequestId,@RequestParam final String houseHold) {
+		System.out.println(approvalRequestId);
+		System.out.println(houseHold);
 		
 		return "You have Approved this Shipment.";
 	}
 	
 	@GetMapping("/reject")
-	public String re(@RequestParam final String approvalRequestId) {
+	public String re(@RequestParam final String approvalRequestId,@RequestParam final String houseHold) {
 		
 		return "You have Rejected this Shipment.";
 	}
