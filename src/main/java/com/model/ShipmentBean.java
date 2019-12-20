@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 public class ShipmentBean {
 	private int versionId;
-    private String privateKey;
+	private String privateKey;
 	private String shipmentRefNo;
 	private String houseNo;
 	private String originBranchDepartment;
@@ -14,8 +14,6 @@ public class ShipmentBean {
 	private LocalDateTime date;
 	private int approvedCount;
 	private int rejectedCount;
-	
-	
 
 	public int getVersionId() {
 		return versionId;
@@ -34,6 +32,9 @@ public class ShipmentBean {
 	}
 
 	public String getShipmentRefNo() {
+		if (shipmentRefNo == null) {
+			return "";
+		}
 		return shipmentRefNo;
 	}
 
@@ -42,6 +43,9 @@ public class ShipmentBean {
 	}
 
 	public String getHouseNo() {
+		if (houseNo == null) {
+			return "";
+		}
 		return houseNo;
 	}
 
@@ -50,6 +54,9 @@ public class ShipmentBean {
 	}
 
 	public String getOriginBranchDepartment() {
+		if (originBranchDepartment == null) {
+			return "";
+		}
 		return originBranchDepartment;
 	}
 
@@ -58,6 +65,9 @@ public class ShipmentBean {
 	}
 
 	public String getDestinationBranchDepartment() {
+		if (destinationBranchDepartment == null) {
+			return "";
+		}
 		return destinationBranchDepartment;
 	}
 
@@ -66,6 +76,9 @@ public class ShipmentBean {
 	}
 
 	public String getPol_pod() {
+		if (pol_pod == null) {
+			return "";
+		}
 		return pol_pod;
 	}
 
@@ -74,6 +87,9 @@ public class ShipmentBean {
 	}
 
 	public String getConsinee() {
+		if (consinee == null) {
+			return "";
+		}
 		return consinee;
 	}
 
@@ -82,6 +98,9 @@ public class ShipmentBean {
 	}
 
 	public LocalDateTime getDate() {
+		if (date == null) {
+			return LocalDateTime.now();
+		}
 		return date;
 	}
 

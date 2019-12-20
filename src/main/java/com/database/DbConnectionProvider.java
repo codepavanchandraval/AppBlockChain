@@ -17,7 +17,7 @@ public class DbConnectionProvider {
 	
 	private static void doOneTimeDBSetup() {
 		try {
-			DbConnectionProvider.createConnection("jdbc:oracle:thin:@10.148.26.42:1521:DEVDB011", "KF32_QA", "kf");
+			DbConnectionProvider.createConnection("jdbc:oracle:thin:@10.148.26.42:1521:DEVDB011", "FJKFF31_PD12102019", "etrans");
 		} catch (Exception e) {
 			System.out.println("Error while accessing Environment");
 		}

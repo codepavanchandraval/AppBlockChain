@@ -18,13 +18,9 @@ public class SaveClass {
 
 	@GetMapping("/save")
 	public String sa(@RequestParam final String privateKey) throws AddressException, MessagingException {
-		// trigger the mail
 		ShipmentBean bean = ServiceUtil.getShipmentBean(privateKey);
 		bean.setHouseNo(privateKey);
-		
 		boolean flag = MailSendingUtil.sendMail(bean, null);
-		// call the mail method, if there is any error while creating any mailing event
-		// the return 0 or return 1
 		if (!flag) {
 			return "0";
 		}

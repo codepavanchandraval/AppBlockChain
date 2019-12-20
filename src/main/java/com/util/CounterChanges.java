@@ -1,21 +1,21 @@
 package com.util;
 
 import com.model.ShipmentBean;
+import com.service.ServiceUtil;
 
 public class CounterChanges {
 
-	public static void doCountChnages(boolean flag, String privateKey) {
+	public static void doCountChnages(boolean flag, String privateKey,String houseId) {
 		ShipmentBean bean = BlockchainManager.getlastBlockChainForGivenKey(privateKey, 1);
 		if (flag) {
 			bean.setApprovedCount(bean.getApprovedCount() + 1);
 			if (bean.getApprovedCount() >= 2) {
-				// trigger a web request to KF and tell them to approved the shipment
-
+				ServiceUtil.updateStatusInKF(houseId, "APPROVED");
 			}
 		} else {
 			bean.setRejectedCount(bean.getRejectedCount() + 1);
 			if (bean.getRejectedCount() >= 2) {
-				// trigger a web request to KF and tell them to reject the shipment
+				ServiceUtil.updateStatusInKF(houseId, "REJECTED");
 			}
 		}
 	}

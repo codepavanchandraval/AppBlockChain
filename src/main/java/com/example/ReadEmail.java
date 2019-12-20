@@ -10,13 +10,13 @@ import com.util.CounterChanges;
 public class ReadEmail {
 	@GetMapping("/approve")
 	public String sa(@RequestParam final String requestId, @RequestParam final String houseHold) {
-		CounterChanges.doCountChnages(true, requestId);
+		CounterChanges.doCountChnages(true, requestId, houseHold);
 		return "You have Approved this Shipment.";
 	}
 
 	@GetMapping("/reject")
 	public String re(@RequestParam final String requestId, @RequestParam final String houseHold) {
-		CounterChanges.doCountChnages(false, requestId);
+		CounterChanges.doCountChnages(false, requestId, houseHold);
 		return "You have Rejected this Shipment.";
 	}
 }
