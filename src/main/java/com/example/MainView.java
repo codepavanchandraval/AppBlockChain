@@ -16,7 +16,6 @@ public class MainView extends VerticalLayout {
 	public MainView(/* @Autowired MessageBean bean */) {
 
 		Grid<ShipmentBean> grid = new Grid<>();
-		grid.addColumn(ShipmentBean::getShipmentRefNo).setHeader("Shipment Ref No.").setId("shipementRefNo");
 		grid.addColumn(ShipmentBean::getHouseNo).setHeader("House No.").setId("houseNo");
 		grid.setItems(BlockchainManager.getShipemntBean());
 
