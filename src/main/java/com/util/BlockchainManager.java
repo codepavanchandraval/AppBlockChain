@@ -1,6 +1,5 @@
 package com.util;
 
-
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -11,10 +10,9 @@ import com.datastructure.BlockChainDatastructure;
 import com.datastructure.BlockChainDatastructureImpl;
 import com.model.ShipmentBean;
 
-
 public class BlockchainManager {
 	public static LinkedHashMap<String, BlockChainDatastructure<ShipmentBean>> mainStream = null;
-	
+
 	public static boolean addToBlockChain(ShipmentBean bean) {
 		initilizeMainStream();
 		BlockChainDatastructure<ShipmentBean> datastructure = mainStream.get(bean.getPrivateKey());
@@ -25,7 +23,7 @@ public class BlockchainManager {
 			mainStream.put(bean.getPrivateKey(), datastructure);
 
 		} else {
-			//already chain is there, adding to last
+			// already chain is there, adding to last
 			datastructure.addLast(bean);
 			mainStream.put(bean.getPrivateKey(), datastructure);
 		}
@@ -47,9 +45,7 @@ public class BlockchainManager {
 			bean.setConsinee("CONSINEE");
 			bean.setDate(LocalDateTime.now());
 			first.addFirst(bean);
-            
-			
-			
+
 			ShipmentBean bean2 = new ShipmentBean();
 			bean2.setPrivateKey("ShipmentRef1House1");
 			bean2.setShipmentRefNo("ShipmentRef1");
@@ -64,7 +60,7 @@ public class BlockchainManager {
 
 		}
 	}
-	
+
 	public static LinkedHashMap<String, BlockChainDatastructure<ShipmentBean>> getMainStram() {
 		initilizeMainStream();
 		return mainStream;
@@ -90,10 +86,8 @@ public class BlockchainManager {
 		}
 		return new ArrayList<ShipmentBean>();
 	}
-	
-	
-	
-	public static ShipmentBean getlastBlockChainForGivenKey(String privateKey,int key) {
+
+	public static ShipmentBean getlastBlockChainForGivenKey(String privateKey, int key) {
 		initilizeMainStream();
 		if (mainStream.get(privateKey) != null) {
 			BlockChainDatastructure<ShipmentBean> dataStructure = mainStream.get(privateKey);
