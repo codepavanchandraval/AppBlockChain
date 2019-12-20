@@ -1,6 +1,7 @@
 package com.example;
 
 import com.component.MainComponent;
+import com.database.DbConnectionProvider;
 import com.model.ShipmentBean;
 import com.util.BlockchainManager;
 import com.vaadin.flow.component.button.Button;
@@ -15,7 +16,7 @@ public class MainView extends VerticalLayout {
 	private static final long serialVersionUID = -9016642298782407535L;
 
 	public MainView(/* @Autowired MessageBean bean */) {
-		
+
 		Grid<ShipmentBean> grid = new Grid<>();
 		grid.addColumn(ShipmentBean::getShipmentRefNo).setHeader("Shipment Ref No.").setId("shipementRefNo");
 		grid.addColumn(ShipmentBean::getHouseNo).setHeader("House No.").setId("houseNo");
@@ -29,27 +30,29 @@ public class MainView extends VerticalLayout {
 			layout.add(component);
 		});
 
+		System.out.println(DbConnectionProvider.getConnection());
+
 		boolean flag = true;
 		VerticalLayout buttonLayout = new VerticalLayout();
 		buttonLayout.removeAll();
-		if(flag) {
-		   Button ok = new Button("Approve");
-		   Button cancel  = new Button("Reject");
-		   buttonLayout.add(ok,cancel);
-		   
-		   ok.addClickListener(event->{
-			   ok.setEnabled(false);
-			   cancel.setEnabled(false);
-			   doCountChnages(true,"privateKey");
-		   });
-		   
-		   cancel.addClickListener(event->{
-			   ok.setEnabled(false);
-			   cancel.setEnabled(false);
-			   doCountChnages(false,"privateKey");
-		   });
+		if (flag) {
+			Button ok = new Button("Approve");
+			Button cancel = new Button("Reject");
+			buttonLayout.add(ok, cancel);
+
+			ok.addClickListener(event -> {
+				ok.setEnabled(false);
+				cancel.setEnabled(false);
+				doCountChnages(true, "privateKey");
+			});
+
+			cancel.addClickListener(event -> {
+				ok.setEnabled(false);
+				cancel.setEnabled(false);
+				doCountChnages(false, "privateKey");
+			});
 		}
-		add(grid,layout,buttonLayout);
+		add(grid, layout, buttonLayout);
 	}
 
 	private void doCountChnages(boolean flag, String privateKey) {
@@ -58,6 +61,8 @@ public class MainView extends VerticalLayout {
 			bean.setApprovedCount(bean.getApprovedCount() + 1);
 			if(bean.getApprovedCount()>=2) {
 				//trigger a web request to KF and tell them to approved the shipment
+				
+				
 			}
 		} else {
             bean.setRejectedCount(bean.getRejectedCount()+1);
