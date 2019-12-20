@@ -14,6 +14,10 @@ public class ShipmentBean {
 	private String shippers;
 	private String consinee;
 	private LocalDateTime date;
+	private int approvedCount;
+	private int rejectedCount;
+	
+	
 
 	public int getVersionId() {
 		return versionId;
@@ -101,5 +105,21 @@ public class ShipmentBean {
 
 	public void setDate(LocalDateTime date) {
 		this.date = date;
+	}
+
+	public int getApprovedCount() {
+		return approvedCount;
+	}
+
+	public void setApprovedCount(int approvedCount) {
+		this.approvedCount = approvedCount;
+	}
+
+	public int getRejectedCount() {
+		return rejectedCount;
+	}
+
+	public void setRejectedCount(int rejectedCount) {
+		this.rejectedCount = rejectedCount;
 	}
 }

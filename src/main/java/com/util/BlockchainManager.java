@@ -95,4 +95,14 @@ public class BlockchainManager {
 		return new ArrayList<ShipmentBean>();
 	}
 	
+	
+	
+	public static ShipmentBean getlastBlockChainForGivenKey(String privateKey) {
+		initilizeMainStream();
+		if (mainStream.get(privateKey) != null) {
+			BlockChainDatastructure<ShipmentBean> dataStructure = mainStream.get(privateKey);
+			return dataStructure.iterateBackward(1);
+		}
+		return new ShipmentBean();
+	}
 }
