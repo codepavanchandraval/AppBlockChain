@@ -13,12 +13,16 @@ import com.util.BlockchainManager;
 public class UpdateClass {
 
     @GetMapping("/update")
-    public String up(@RequestParam final String privateKey) {
-    	//trigger the mail and create a block with the privateKey
-    	
-    	ShipmentBean bean = new ShipmentBean();
-    	BlockchainManager.addToBlockChain(bean);
-    	
-        return "update mail got Triggred";
-    }
+	public String up(@RequestParam final String privateKey) {
+		// trigger the mail and create a block with the privateKey
+		boolean flag = false;
+		// call the mail method, if there is any error while creating mailing event then
+		// return 0 or return the privateKey whichever is coming
+		if (flag) {
+			return "0";
+		}
+		ShipmentBean bean = new ShipmentBean();
+		BlockchainManager.addToBlockChain(bean);
+		return privateKey;
+	}
 }
