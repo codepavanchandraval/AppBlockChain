@@ -9,9 +9,7 @@ public class ShipmentBean {
 	private String houseNo;
 	private String originBranchDepartment;
 	private String destinationBranchDepartment;
-	private String eta_etd;
 	private String pol_pod;
-	private String shippers;
 	private String consinee;
 	private LocalDateTime date;
 	private int approvedCount;
@@ -67,28 +65,12 @@ public class ShipmentBean {
 		this.destinationBranchDepartment = destinationBranchDepartment;
 	}
 
-	public String getEta_etd() {
-		return eta_etd;
-	}
-
-	public void setEta_etd(String eta_etd) {
-		this.eta_etd = eta_etd;
-	}
-
 	public String getPol_pod() {
 		return pol_pod;
 	}
 
 	public void setPol_pod(String pol_pod) {
 		this.pol_pod = pol_pod;
-	}
-
-	public String getShippers() {
-		return shippers;
-	}
-
-	public void setShippers(String shippers) {
-		this.shippers = shippers;
 	}
 
 	public String getConsinee() {

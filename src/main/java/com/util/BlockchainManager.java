@@ -44,8 +44,6 @@ public class BlockchainManager {
 			bean.setDestinationBranchDepartment("BOM");
 			bean.setOriginBranchDepartment("HYD");
 			bean.setPol_pod("POD");
-			bean.setEta_etd("ETA");
-			bean.setShippers("SHIPPERS");
 			bean.setConsinee("CONSINEE");
 			bean.setDate(LocalDateTime.now());
 			first.addFirst(bean);
@@ -59,8 +57,6 @@ public class BlockchainManager {
 			bean2.setDestinationBranchDepartment("BOM");
 			bean2.setOriginBranchDepartment("HYD");
 			bean2.setPol_pod("POD1");
-			bean2.setEta_etd("ETA1");
-			bean2.setShippers("SHIPPERS1");
 			bean2.setConsinee("CONSINEE1");
 			bean2.setDate(LocalDateTime.now());
 			first.addLast(bean2);

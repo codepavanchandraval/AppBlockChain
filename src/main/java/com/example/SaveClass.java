@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mail.mailUtil;
+import com.service.ServiceUtil;
 
 @RestController
 public class SaveClass {
@@ -15,6 +16,7 @@ public class SaveClass {
 		boolean flag = mailUtil.sendMail();
 		// call the mail method, if there is any error while creating any mailing event
 		// the return 0 or return 1
+		ServiceUtil.getShipmentBean(privateKey);
 		if (!flag) {
 			return "0";
 		}

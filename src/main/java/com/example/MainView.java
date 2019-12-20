@@ -1,7 +1,6 @@
 package com.example;
 
 import com.component.MainComponent;
-import com.database.DbConnectionProvider;
 import com.model.ShipmentBean;
 import com.util.BlockchainManager;
 import com.vaadin.flow.component.button.Button;
@@ -29,9 +28,7 @@ public class MainView extends VerticalLayout {
 			MainComponent component = new MainComponent(event.getItem());
 			layout.add(component);
 		});
-
-		System.out.println(DbConnectionProvider.getConnection());
-
+		
 		boolean flag = true;
 		VerticalLayout buttonLayout = new VerticalLayout();
 		buttonLayout.removeAll();
